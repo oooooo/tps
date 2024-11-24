@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>醫院查詢系統</title>
+    <!-- React CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Babel CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 醫院數據 -->
+    <script type="text/babel">
+      // 這部分可以單獨複製到 hospital-data.js
+      window.hospitalData = [
+        { id: 1, district: "台北", name: "台北醫院", address: "台北市中正區忠孝東路100號", phone: "02-1234-5678", note: "24小時急診" },
+        { id: 2, district: "新北", name: "新北醫院", address: "新北市板橋區中山路200號", phone: "02-2345-6789", note: "婦產科特色" },
+        { id: 3, district: "台北", name: "仁愛醫院", address: "台北市大安區仁愛路300號", phone: "02-3456-7890", note: "" }
+      ];
+    </script>
+
+    <!-- 醫院過濾器組件 -->
+    <script type="text/babel">
+      // 這部分可以單獨複製到 hospital-filter.js
+      const { useState, useMemo } = React;
+
+      const HospitalFilter = () => {
+        // 使用外部數據
+        const hospitals = window.hospitalData;
+
+        // 狀態
+        const [selectedDistrict, setSelectedDistrict] = useState("全部");
+        const [searchQuery, setSearchQuery] = useState("");
+        const [suggestions, setSuggestions] = useState([]);
+        const [showSuggestions, setShowSuggestions] = useState(false);
+
+        // 取得所有不重複的地區
+        const districts = useMemo(() => {
+          const uniqueDistricts = [...new Set(hospitals.map((h) => h.district))];
+          return ["全部", ...uniqueDistricts];
+        }, []);
+
+        // 過濾醫院資料
+        const filteredHospitals = useMemo(() => {
+          return hospitals.filter((hospital) => {
+            const districtMatch = selectedDistrict === "全部" || hospital.district === selectedDistrict;
+            const searchMatch = searchQuery === "" || hospital.name.toLowerCase().includes(searchQuery.toLowerCase()) || hospital.address.toLowerCase().includes(searchQuery.toLowerCase());
+            return districtMatch && searchMatch;
+          });
+        }, [selectedDistrict, searchQuery]);
+
+        // 處理搜尋建議
+        const handleSearchInput = (value) => {
+          setSearchQuery(value);
+          if (value.length > 0) {
+            const matches = hospitals.filter((hospital) => hospital.name.toLowerCase().includes(value.toLowerCase()) || hospital.address.toLowerCase().includes(value.toLowerCase()));
+            setSuggestions(matches.slice(0, 5));
+            setShowSuggestions(true);
+          } else {
+            setSuggestions([]);
+            setShowSuggestions(false);
+          }
+        };
+
+        return (
+          <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+            <h1 style={{ marginBottom: "20px" }}>醫院查詢系統</h1>
+
+            {/* 地區過濾按鈕 */}
+            <div style={{ marginBottom: "20px" }}>
+              {districts.map((district) => (
+                <button
+                  key={district}
+                  onClick={() => setSelectedDistrict(district)}
+                  style={{
+                    margin: "0 10px 10px 0",
+                    padding: "8px 16px",
+                    border: selectedDistrict === district ? "2px solid #007bff" : "1px solid #ccc",
+                    borderRadius: "4px",
+                    background: selectedDistrict === district ? "#007bff" : "white",
+                    color: selectedDistrict === district ? "white" : "black",
+                    cursor: "pointer"
+                  }}
+                >
+                  {district}
+                </button>
+              ))}
+            </div>
+
+            {/* 搜尋框 */}
+            <div style={{ position: "relative", marginBottom: "20px" }}>
+              <input
+                type="text"
+                placeholder="搜尋醫院名稱或地址..."
+                value={searchQuery}
+                onChange={(e) => handleSearchInput(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                  fontSize: "16px"
+                }}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+              />
+
+              {/* 自動完成建議 */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    right: 0,
+                    background: "white",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    zIndex: 1000,
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                  }}
+                >
+                  {suggestions.map((hospital) => (
+                    <div
+                      key={hospital.id}
+                      style={{
+                        padding: "10px",
+                        borderBottom: "1px solid #eee",
+                        cursor: "pointer"
+                      }}
+                      onClick={() => {
+                        setSearchQuery(hospital.name);
+                        setShowSuggestions(false);
+                      }}
+                      onMouseDown={(e) => e.preventDefault()}
+                    >
+                      <div style={{ fontWeight: "bold" }}>{hospital.name}</div>
+                      <div style={{ fontSize: "14px", color: "#666" }}>{hospital.address}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* 結果列表 */}
+            <div>
+              {filteredHospitals.map((hospital) => (
+                <div
+                  key={hospital.id}
+                  style={{
+                    border: "1px solid #ccc",
+                    borderRadius: "4px",
+                    padding: "15px",
+                    marginBottom: "15px"
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div>
+                      <h3 style={{ margin: "0 0 10px 0" }}>{hospital.name}</h3>
+                      <p style={{ margin: "5px 0", color: "#666" }}>{hospital.address}</p>
+                      <p style={{ margin: "5px 0", color: "#666" }}>電話：{hospital.phone}</p>
+                      {hospital.note && <p style={{ margin: "5px 0", color: "#666" }}>備註：{hospital.note}</p>}
+                    </div>
+                    <span
+                      style={{
+                        padding: "4px 8px",
+                        background: "#e6f3ff",
+                        color: "#007bff",
+                        borderRadius: "12px",
+                        fontSize: "14px"
+                      }}
+                    >
+                      {hospital.district}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      };
+
+      window.HospitalFilter = HospitalFilter;
+    </script>
+
+    <!-- 渲染組件 -->
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<HospitalFilter />);
+    </script>
+  </body>
+</html>
