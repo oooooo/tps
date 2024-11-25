@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>醫院查詢系統</title>
+    <link rel="stylesheet" href="css.css" />
+    <script src="hospital-data.js"></script>
+
+    <!-- React CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Babel CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 按順序引入文件 -->
+    <script type="text/babel" src="hospital-data.js"></script>
+    <!-- <script type="text/babel">
+      // 這部分可以單獨複製到 hospital-data.js
+      window.hospitalData = [
+        {
+          id: 0,
+          district: "台北市",
+          name: "不萊梅特殊寵物專科醫院",
+          address: "台北市大同區民權西路227號",
+          phone: "02-25993907",
+          note: ""
+        },
+        {
+          id: 1,
+          district: "台北市",
+          name: "台大動物醫院",
+          address: "台北市大安區基隆路三段153號",
+          phone: "02-27396828",
+          note: ""
+        },
+        {
+          id: 2,
+          district: "台北市",
+          name: "伊甸動物醫院",
+          address: "台北市中山區北安路554巷33號1樓",
+          phone: "02-85097579",
+          note: ""
+        }
+      ];
+    </script> -->
+    <script type="text/babel" src="hospital-filter.js"></script>
+
+    <!-- 渲染組件 -->
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<HospitalFilter />);
+    </script>
+  </body>
+</html>

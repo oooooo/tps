@@ -1,0 +1,138 @@
+@import "/path/to/reset-css/reset.css";
+* {
+  box-sizing: border-box;
+}
+/* 容器樣式 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.note {
+  font-size: 0.75em;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.key_button {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 2px 4px;
+  border-radius: 0.5em;
+}
+
+/* 地區過濾按鈕樣式 */
+.button-group {
+  margin-bottom: 20px;
+  overflow: auto;
+  box-shadow: inset 0px 0px 8px #00000010;
+  padding: 10px;
+  display: flex;
+}
+
+.button-group .button {
+  margin: 0 8px 8px 0;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  mix-blend-mode: darken;
+}
+.button-group .button span {
+  font-size: 11px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.button.selected {
+  border: 2px solid #007bff;
+  background: #007bff;
+  color: white;
+}
+
+/* 搜尋框樣式 */
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background: #f9f9f9;
+}
+
+.suggestion-name {
+  font-weight: bold;
+}
+
+.suggestion-address {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 結果列表樣式 */
+.result-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-title {
+  margin: 0 0 10px 0;
+}
+
+.result-text {
+  margin: 5px 0;
+  color: #666;
+}
+
+.result-district {
+  padding: 4px 8px;
+  background: #e6f3ff;
+  color: #007bff;
+  border-radius: 12px;
+  font-size: 14px;
+}
