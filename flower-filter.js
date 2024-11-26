@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="container">
       <h1 id="top" className="title">
-        食用百花圖鑑
+        陸龜小學堂 龜龜野食圖鑑
       </h1>
 
       <p>
