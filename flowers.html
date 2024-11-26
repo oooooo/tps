@@ -3,118 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>食用百花圖鑑</title>
+    <link rel="stylesheet" href="css.css" />
+    <script src="flower-data.js"></script>
+    <title>陸龜小學堂 龜龜野食圖鑑</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.1/babel.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 0;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f4f4f4;
-      }
-      input {
-        margin-bottom: 10px;
-        padding: 5px;
-        width: 200px;
-      }
-      label {
-        margin-right: 10px;
-      }
-    </style>
   </head>
   <body>
     <div id="app"></div>
+    <script type="text/babel" src="flower-filter.js"></script>
     <script type="text/babel">
-      const { useState } = React;
-
-      const flowerData = [
-        { image: "https://picsum.photos/100?random=1", name: "玫瑰", toxic: "無毒", frequency: "1 次 / 週", notes: "適量食用" },
-        { image: "https://picsum.photos/100?random=2", name: "百合", toxic: "有毒", frequency: "不可食用", notes: "有毒性，勿食用" },
-        { image: "https://picsum.photos/100?random=3", name: "茉莉", toxic: "無毒", frequency: "2 次 / 週", notes: "可以泡茶" },
-        { image: "https://picsum.photos/100?random=4", name: "夜來香", toxic: "有毒", frequency: "不可食用", notes: "觀賞用途" }
-      ];
-
-      function App() {
-        const [search, setSearch] = useState("");
-        const [filterToxic, setFilterToxic] = useState("");
-        const [sortKey, setSortKey] = useState("");
-
-        const handleSearch = (e) => setSearch(e.target.value.toLowerCase());
-        const handleFilter = (e) => setFilterToxic(e.target.value);
-        const handleSort = (e) => setSortKey(e.target.value);
-
-        const filteredData = flowerData
-          .filter((flower) => flower.name.toLowerCase().includes(search) && (filterToxic === "" || flower.toxic === filterToxic))
-          .sort((a, b) => {
-            if (sortKey === "name") return a.name.localeCompare(b.name);
-            if (sortKey === "frequency") return a.frequency.localeCompare(b.frequency);
-            return 0;
-          });
-
-        return (
-          <div>
-            <h1>食用百花圖鑑</h1>
-            <div>
-              <input type="text" placeholder="搜尋花名..." value={search} onChange={handleSearch} />
-              <label>
-                <select value={filterToxic} onChange={handleFilter}>
-                  <option value="">全部</option>
-                  <option value="無毒">無毒</option>
-                  <option value="有毒">有毒</option>
-                </select>
-              </label>
-              <label>
-                <select value={sortKey} onChange={handleSort}>
-                  <option value="">不排序</option>
-                  <option value="name">按名稱排序</option>
-                  <option value="frequency">按食用頻率排序</option>
-                </select>
-              </label>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>圖片</th>
-                  <th>花名</th>
-                  <th>毒性</th>
-                  <th>食用頻率</th>
-                  <th>備註</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredData.map((flower, index) => (
-                  <tr key={index}>
-                    <td>
-                      <img src={flower.image} alt={flower.name} />
-                    </td>
-                    <td>{flower.name}</td>
-                    <td>{flower.toxic}</td>
-                    <td>{flower.frequency}</td>
-                    <td>{flower.notes}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-      }
-
       ReactDOM.render(<App />, document.getElementById("app"));
     </script>
   </body>
 </html>
+

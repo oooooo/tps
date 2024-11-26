@@ -1,6 +1,22 @@
-@import "/path/to/reset-css/reset.css";
 * {
   box-sizing: border-box;
+  color: #333;
+}
+
+select,
+button {
+  border-radius: 4px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+}
+p {
+  line-height: 1.75;
+}
+em {
+  font-style: normal;
+  margin: 0 0.25em;
+  font-weight: bolder;
+  color: #111;
 }
 /* 容器樣式 */
 .container {
@@ -15,61 +31,115 @@
 
 .note {
   font-size: 0.75em;
-  opacity: 0.5;
-  margin: 0;
+  /* opacity: 0.5; */
+  color: #666;
+  margin: 0.75em 0;
 }
 
 .key_button {
   display: inline-block;
   border: 1px solid #aaa;
   padding: 2px 4px;
-  border-radius: 0.5em;
-}
-
-/* 地區過濾按鈕樣式 */
-.button-group {
-  margin-bottom: 20px;
-  overflow: auto;
-  box-shadow: inset 0px 0px 8px #00000010;
-  padding: 10px;
-  display: flex;
-}
-
-.button-group .button {
-  margin: 0 8px 8px 0;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  background: white;
-  color: black;
-  cursor: pointer;
-  font-size: 14px;
-  mix-blend-mode: darken;
-}
-.button-group .button span {
-  font-size: 11px;
-  font-family: "Courier New", Courier, monospace;
+  box-shadow: 1px 1px 0px #aaa;
 }
 
-.button.selected {
-  border: 2px solid #007bff;
-  background: #007bff;
-  color: white;
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+.brand {
+  position: relative;
+}
+a.brand {
+  text-decoration: none;
+}
+.brand .icon {
+  position: relative;
+  bottom: -3px;
+  margin: 0 2px;
+}
+.googlephoto,
+.store_badge,
+.qrcode {
+  display: block;
+  height: auto;
+}
+.qrcode {
+  width: 86px;
+}
+.store_badge {
+  margin-top: 5px;
+  width: 121px;
+}
+.googlephoto {
+  width: 78px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  margin-top: 6px;
+}
+.applist,
+.applist li {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0;
+}
+.applist {
+  font-size: 0.75em;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.applist li {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2em 2em 0;
+  justify-content: center;
+}
+.applist li p {
+  margin: 0;
+}
+.applist li a {
+  text-decoration: none;
 }
 
 /* 搜尋框樣式 */
 .search-container {
   position: relative;
+}
+.search-container-block {
   margin-bottom: 20px;
+  font-size: 16px;
+}
+.search-container-inline {
+  display: inline-block;
+  font-size: 13px;
 }
 
 .search-input {
   width: 100%;
   padding: 10px;
-
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: inherit;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  background: none;
+}
+.clear-btn:hover {
+  color: #000;
+  background: none;
 }
 
 .suggestions {
@@ -107,32 +177,115 @@
   color: #666;
 }
 
+/* 
+hospital 
+*/
+
+/* 地區過濾按鈕樣式 */
+.district-group {
+  margin-bottom: 20px;
+  overflow: auto;
+  box-shadow: inset 0px 0px 8px #00000010;
+  padding: 10px;
+  display: flex;
+}
+
+.district-group .button {
+  margin: 0 8px 8px 0;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  mix-blend-mode: darken;
+}
+.district-group .button span {
+  font-size: 11px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.button.selected {
+  border: 2px solid #007bff;
+  background: #007bff;
+  color: white;
+}
+
 /* 結果列表樣式 */
-.result-card {
+.hospital-card {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 15px;
   margin-bottom: 15px;
 }
 
-.result-header {
+.hospital-header {
   display: flex;
   justify-content: space-between;
 }
 
-.result-title {
+.hospital-title {
   margin: 0 0 10px 0;
 }
 
-.result-text {
+.hospital-text {
   margin: 5px 0;
   color: #666;
 }
 
-.result-district {
+.hospital-district {
   padding: 4px 8px;
   background: #e6f3ff;
   color: #007bff;
   border-radius: 12px;
   font-size: 14px;
+}
+
+/* /////////////////// */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.flower_gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.flower_gallery .card {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+.flower_gallery .card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.flower_gallery .card .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+.flower_gallery .card .toxic {
+  color: red;
+  font-weight: bold;
+}
+.flower_gallery .card .nontoxic {
+  color: green;
+  font-weight: bold;
+}
+.flower_gallery .card .frequency,
+.flower_gallery .card .notes {
+  font-size: 14px;
+  margin: 5px 0;
 }

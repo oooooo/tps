@@ -306,10 +306,10 @@ window.hospitalData = [
   {
     id: 38,
     district: "苗栗縣",
-    name: "苗栗鴻成賽鴿醫院 備註：邱治璋 醫生",
+    name: "苗栗鴻成賽鴿醫院",
     address: "苗栗縣公館鄉石墻村8鄰177號",
     phone: "03-7232908 0919-705290",
-    note: ""
+    note: "邱治璋 醫生"
   },
   {
     id: 39,
