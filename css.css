@@ -6,7 +6,7 @@
 select,
 button {
   border-radius: 4px;
-  padding: 0 8px;
+  padding: 10px;
   border: 1px solid #ccc;
 }
 p {
@@ -43,7 +43,19 @@ em {
   border-radius: 4px;
   box-shadow: 1px 1px 0px #aaa;
 }
-
+.gotop {
+  position: fixed;
+  bottom: 53px;
+  right: 0;
+  font-size: 11px;
+  width: 3em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 18px 0 0px 18px;
+  box-shadow: 0 0 10px 0px #00000010;
+  text-decoration: none;
+  color: #888;
+}
 .icon {
   width: 1em;
   height: 1em;
