@@ -124,9 +124,10 @@ function App() {
           <img className="googlephoto" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/08/c2/d0/08c2d0c1-6742-3319-22d9-288cf8496aca/logo_photos_color-0-1x_U007emarketing-0-0-0-6-0-0-0-85-220-0.png/460x0w.webp"></img>
         </li>
       </ul>
-      <p>
-        <a href="#top">回最頂</a>
-      </p>
+
+      <a className="gotop" href="#top">
+        回頭
+      </a>
     </div>
   );
 }
