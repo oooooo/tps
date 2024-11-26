@@ -7,7 +7,7 @@ const HospitalFilter = () => {
 
   // 狀態
   const [selectedDistrict, setSelectedDistrict] = useState("全部");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -66,15 +66,20 @@ const HospitalFilter = () => {
     }
   };
 
+  const mapSearch = (query) => {
+    const encodedQuery = encodeURIComponent(query); // 將搜尋字串編碼
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedQuery}`, "_blank");
+  };
+
   return (
     <div className="container">
       <h1 className="title">醫院查詢系統</h1>
       <p className="note">
-        （按住 <code className="key_button">shift</code> 鍵搭配滑鼠滾輪左右捲動）
+        （桌機：按住 <code className="key_button">shift</code> 鍵搭配滑鼠滾輪 ↔️ 左右捲動）
       </p>
 
       {/* 地區過濾按鈕 */}
-      <div className="button-group">
+      <div className="district-group">
         {districts.map((district) => (
           <button key={district} onClick={() => setSelectedDistrict(district)} className={`button ${selectedDistrict === district ? "selected" : ""}`}>
             {/* {district} */}
@@ -83,8 +88,13 @@ const HospitalFilter = () => {
         ))}
       </div>
       {/* 搜尋框 */}
-      <div className="search-container">
+      <div className="search-container search-container-block">
         <input type="text" placeholder="搜尋醫院名稱或地址..." value={searchQuery} onChange={(e) => handleSearchInput(e.target.value)} className="search-input" onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} />
+        {searchQuery && (
+          <button className="clear-btn" onClick={() => setSearchQuery("")} aria-label="清除搜尋內容">
+            X
+          </button>
+        )}
 
         {/* 自動完成建議 */}
         {showSuggestions && suggestions.length > 0 && (
@@ -109,15 +119,18 @@ const HospitalFilter = () => {
       {/* 結果列表 */}
       <div>
         {filteredHospitals.map((hospital) => (
-          <div key={hospital.id} className="result-card">
-            <div className="result-header">
+          <div key={hospital.id} className="hospital-card">
+            <div className="hospital-header">
               <div>
-                <h3 className="result-title">{hospital.name}</h3>
-                <p className="result-text">{hospital.address}</p>
-                <p className="result-text">電話：{hospital.phone}</p>
-                {hospital.note && <p className="result-text">備註：{hospital.note}</p>}
+                <h3 className="hospital-title">{hospital.name}</h3>
+                <p className="hospital-text">{hospital.address}</p>
+                <p className="hospital-text">電話：{hospital.phone}</p>
+                {hospital.note && <p className="hospital-text">備註：{hospital.note}</p>}
+                <button className="note" onClick={() => mapSearch(hospital.name)}>
+                  找地圖
+                </button>
               </div>
-              <span className="result-district">{hospital.district}</span>
+              <span className="hospital-district">{hospital.district}</span>
             </div>
           </div>
         ))}
