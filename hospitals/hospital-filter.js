@@ -67,8 +67,12 @@ const HospitalFilter = () => {
   };
 
   const mapSearch = (query) => {
-    const encodedQuery = encodeURIComponent(query); // 將搜尋字串編碼
-    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedQuery}`, "_blank");
+    if (query !== "達爾文動物醫院") {
+      const encodedQuery = encodeURIComponent(query); // 將搜尋字串編碼
+      window.open(`https://www.google.com/maps/search/?api=1&query=${encodedQuery}`, "_blank");
+    } else {
+      window.open(`https://www.facebook.com/share/1DgJYLCDTK/?mibextid=LQQJ4d`, "_blank");
+    }
   };
 
   return (
@@ -129,7 +133,7 @@ const HospitalFilter = () => {
                 <p className="hospital-text">電話：{hospital.phone}</p>
                 {hospital.note && <p className="hospital-text">備註：{hospital.note}</p>}
                 <button className="note" onClick={() => mapSearch(hospital.name)}>
-                  找地圖
+                  {hospital.name !== "達爾文動物醫院" ? "找地圖" : "fb 粉專"}
                 </button>
               </div>
               <span className="hospital-district">{hospital.district}</span>
