@@ -678,13 +678,5 @@ window.hospitalData = [
     address: "花蓮市中華路325號之7",
     phone: "03-8335123",
     note: ""
-  },
-  {
-    id: 85,
-    district: "花蓮市",
-    name: "蕙康動物醫院",
-    address: "花蓮縣花蓮市信義街113-1號",
-    phone: "03-8352-122",
-    note: ""
   }
 ];
