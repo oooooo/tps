@@ -73,7 +73,9 @@ const HospitalFilter = () => {
 
   return (
     <div className="container">
-      <h1 className="title">陸龜小學堂 醫院查尋系統</h1>
+      <h1 className="title">
+        <span>陸龜小學堂</span>醫院查尋系統
+      </h1>
       <p className="note">
         （桌機：按住 <code className="key_button">shift</code> 鍵搭配滑鼠滾輪 ↔️ 左右捲動）
       </p>
