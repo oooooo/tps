@@ -81,9 +81,9 @@ const HospitalFilter = () => {
         <span>陸龜小學堂</span>醫院查尋系統
       </h1>
       <p className="note">
-        （桌機：按住 <code className="key_button">shift</code> 鍵搭配滑鼠滾輪 ↔️ 左右捲動），
+        這個資料還需大家共同幫忙更新，留言中 <code>@Hel Lo</code> 可以讓我更快收到通知。
         <br />
-        這個資料還需大家共同幫忙更新，留言串中 `@Hel Lo` 可以讓我更快收到通知。
+        (桌機：按住 <code className="key_button">shift</code> 鍵搭配滑鼠滾輪 ↔️ 左右捲動)
       </p>
 
       {/* 地區過濾按鈕 */}
