@@ -21,6 +21,13 @@ em {
 a {
   text-decoration: none;
 }
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0;
+  line-height: 1.75;
+}
 
 /* 容器樣式 */
 .container {
@@ -101,15 +108,9 @@ h1.title span {
   border-radius: 18px;
   margin-top: 6px;
 }
-.applist,
-.applist li {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 0 0;
-}
+
 .applist {
   font-size: 0.75em;
-
   display: inline-flex;
   flex-wrap: wrap;
 }
