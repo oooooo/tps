@@ -77,7 +77,7 @@ const HospitalFilter = () => {
 
   return (
     <div className="container">
-      <h1 className="title">
+      <h1 className="title" id="top">
         <span>陸龜小學堂</span>醫院查尋系統
       </h1>
       <p className="note">
@@ -143,6 +143,10 @@ const HospitalFilter = () => {
           </div>
         ))}
       </div>
+
+      <a className="gotop" href="#top">
+        回頭
+      </a>
     </div>
   );
 };

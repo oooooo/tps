@@ -229,15 +229,18 @@ hospital
   font-family: "Courier New", Courier, monospace;
 }
 
-.button.selected {
+.district-group .button.selected {
   border: 2px solid #007bff;
   background: #007bff;
   color: white;
 }
+.district-group .button.selected span {
+  color: #ddd;
+}
 
 /* 結果列表樣式 */
 .hospital-card {
-  border: 1px solid #ccc;
+  border: 1px solid #fff;
   border-radius: 4px;
   padding: 15px;
   margin-bottom: 15px;
@@ -263,6 +266,7 @@ hospital
   color: #007bff;
   border-radius: 12px;
   font-size: 0.75em;
+  white-space: nowrap;
 }
 
 /* /////////////////// */
