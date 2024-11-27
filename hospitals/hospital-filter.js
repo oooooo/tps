@@ -71,7 +71,7 @@ const HospitalFilter = () => {
       const encodedQuery = encodeURIComponent(query); // 將搜尋字串編碼
       window.open(`https://www.google.com/maps/search/?api=1&query=${encodedQuery}`, "_blank");
     } else {
-      window.open(`https://www.facebook.com/share/1DgJYLCDTK/?mibextid=LQQJ4d`, "_blank");
+      window.open(`https://www.facebook.com/groups/366377782941836/user/100063980892930/`, "_blank");
     }
   };
 
