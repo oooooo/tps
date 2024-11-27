@@ -662,8 +662,7 @@ window.hospitalData = [
     address: "花蓮市中華路325號之7",
     phone: "03-8335123",
     note: ""
-  }
-  ,
+  },
   {
     id: 85,
     district: "台中市",
@@ -679,12 +678,21 @@ window.hospitalData = [
     address: "242新北市新莊區幸福東路140號1樓",
     phone: "02-2990-6905",
     note: ""
-  },{    
+  },
+  {
     id: 87,
     district: "台中市",
     name: "瑞瑞動物醫院",
     address: "407003台中市西屯區台灣大道四段828號",
     phone: "04-2463-0052",
     note: ""
-}
+  },
+  {
+    id: 88,
+    district: "台南市",
+    name: "惠馨動物醫院",
+    address: "741台南市善化區民生路397號",
+    phone: "06-585-4119",
+    note: ""
+  }
 ];
