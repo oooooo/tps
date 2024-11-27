@@ -65,14 +65,15 @@ h1.title span {
   position: fixed;
   bottom: 53px;
   right: 0;
-  font-size: 11px;
-  width: 3em;
-  padding: 1em;
-  background-color: #fff;
-  border-radius: 18px 0 0px 18px;
-  box-shadow: 0 0 10px 0px #00000010;
+  font-size: 0.75em;
+  width: 2.35em;
+  padding: 8px;
+  background-color: #f1f1f1;
+  /* border-radius: 18px 0 0px 18px; */
+  /* border-radius: 14px 0 0 14px; */
+  /* box-shadow: 0 0 10px -5px #00000050; */
   text-decoration: none;
-  color: #888;
+  color: #666;
 }
 
 .icon {
@@ -208,21 +209,27 @@ hospital
 .district-group {
   margin-bottom: 20px;
   overflow: auto;
-  box-shadow: inset 0px 0px 8px #00000010;
-  padding: 10px;
+  /* box-shadow: inset 0px 0px 8px #00000010; */
+  /* padding: 10px; */
   display: flex;
+  padding-left: 1px;
 }
 
 .district-group .button {
-  margin: 0 8px 8px 0;
+  margin: 0 0 8px -1px;
   padding: 8px 16px;
   border: 1px solid #ccc;
+  /* border: none; */
   border-radius: 4px;
-  background: white;
+  /* background: white; */
+  background: none;
   color: black;
   cursor: pointer;
   font-size: 14px;
   mix-blend-mode: darken;
+}
+.district-group .button:last-child {
+  margin-right: 0;
 }
 .district-group .button span {
   font-size: 11px;
@@ -231,11 +238,13 @@ hospital
 
 .district-group .button.selected {
   border: 2px solid #007bff;
+  border: none;
   background: #007bff;
   color: white;
 }
 .district-group .button.selected span {
   color: #ddd;
+  font-weight: bolder;
 }
 
 /* 結果列表樣式 */
@@ -261,7 +270,7 @@ hospital
 }
 
 .hospital-district {
-  padding: 4px 8px;
+  padding: 8px;
   background: #e6f3ff;
   color: #007bff;
   border-radius: 12px;
