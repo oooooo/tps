@@ -679,5 +679,12 @@ window.hospitalData = [
     address: "242新北市新莊區幸福東路140號1樓",
     phone: "02-2990-6905",
     note: ""
-  }
+  },{    
+    id: 87,
+    district: "台中市",
+    name: "瑞瑞動物醫院",
+    address: "407003台中市西屯區台灣大道四段828號",
+    phone: "04-2463-0052",
+    note: ""
+}
 ];
