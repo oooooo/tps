@@ -32,14 +32,6 @@ window.hospitalData = [
     note: ""
   },
   {
-    id: 4,
-    district: "台北市",
-    name: "中研動物醫院",
-    address: "台北市南港區研究院路一段72號",
-    phone: "02-26512100",
-    note: ""
-  },
-  {
     id: 5,
     district: "台北市",
     name: "良醫動物醫院",
@@ -78,14 +70,6 @@ window.hospitalData = [
     address: "台北市大安區辛亥路一段50號",
     phone: "02 2365 8628",
     note: ""
-  },
-  {
-    id: 10,
-    district: "新北市",
-    name: "剛果非犬貓動物醫院",
-    address: "新北市新店區中興路三段259號",
-    phone: "02-86655702",
-    note: "已不看陸龜"
   },
   {
     id: 11,
@@ -677,6 +661,23 @@ window.hospitalData = [
     name: "中華動物醫院",
     address: "花蓮市中華路325號之7",
     phone: "03-8335123",
+    note: ""
+  }
+  ,
+  {
+    id: 85,
+    district: "台中市",
+    name: "伴心特殊寵物專科醫院",
+    address: "408台中市南屯區文心路一段430號",
+    phone: "04-2323-1788",
+    note: ""
+  },
+  {
+    id: 86,
+    district: "新北市",
+    name: "小水豚非犬貓動物醫院",
+    address: "242新北市新莊區幸福東路140號1樓",
+    phone: "02-2990-6905",
     note: ""
   }
 ];
