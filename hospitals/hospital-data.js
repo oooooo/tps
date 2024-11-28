@@ -99,7 +99,7 @@ window.hospitalData = [
     id: 14,
     district: "新北市",
     name: "慈恩動物醫院",
-    address: "新北市永和區永利路142號",
+    address: "234新北市永和區竹林路150號",
     phone: "02-32335195",
     note: ""
   },
@@ -694,6 +694,14 @@ window.hospitalData = [
     name: "星羽動物醫院｜三民院",
     address: "高雄市三民區信國路20號",
     phone: "07-395-5131",
+    note: ""
+  },
+  {
+    id: 91,
+    district: "台南市",
+    name: "酷比動物醫院",
+    address: "702007台南市南區夏林路210號",
+    phone: "06-263-1058",
     note: ""
   }
 ];
