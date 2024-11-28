@@ -194,7 +194,7 @@ window.hospitalData = [
   {
     id: 26,
     district: "桃園市",
-    name: "普羅動物醫院 ",
+    name: "普羅動物醫院",
     address: "桃園市桃園區泰成路15號",
     phone: "03-3789900",
     note: ""
@@ -387,9 +387,9 @@ window.hospitalData = [
   {
     id: 52,
     district: "台中市",
-    name: "英國皇家動物醫院 ",
-    address: "台中市西屯區河南路二段429號B1之2 ",
-    phone: "04-27073887 ",
+    name: "英國皇家動物醫院",
+    address: "台中市西屯區河南路二段429號B1之2",
+    phone: "04-27073887",
     note: ""
   },
   {
@@ -637,7 +637,7 @@ window.hospitalData = [
     district: "屏東縣",
     name: "潮州國太動物醫院",
     address: "屏東縣潮州鎮永昌路47巷3號",
-    phone: "08-780-2856 ",
+    phone: "08-780-2856",
     note: ""
   },
   {
