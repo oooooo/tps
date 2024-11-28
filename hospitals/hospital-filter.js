@@ -58,7 +58,7 @@ const HospitalFilter = () => {
     setSearchQuery(value);
     if (value.length > 0) {
       const matches = hospitals.filter((hospital) => hospital.name.toLowerCase().includes(value.toLowerCase()) || hospital.address.toLowerCase().includes(value.toLowerCase()));
-      setSuggestions(matches.slice(0, 5));
+      setSuggestions(matches.slice(0, 20));
       setShowSuggestions(true);
     } else {
       setSuggestions([]);
