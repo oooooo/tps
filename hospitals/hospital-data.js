@@ -199,22 +199,7 @@ window.hospitalData = [
     phone: "03-3789900",
     note: ""
   },
-  {
-    id: 27,
-    district: "桃園市",
-    name: "晨曦動物醫院",
-    address: "桃園市桃園區國際路二段194號",
-    phone: "03-3600922",
-    note: ""
-  },
-  {
-    id: 28,
-    district: "桃園市",
-    name: "逗號動物醫院",
-    address: "桃園市桃園區中山路517號",
-    phone: "03-3322212",
-    note: ""
-  },
+
   {
     id: 29,
     district: "桃園市",
@@ -594,7 +579,7 @@ window.hospitalData = [
   {
     id: 76,
     district: "高雄市",
-    name: "星羽動物醫院",
+    name: "星羽動物醫院｜林園院",
     address: "高雄市林園區東林西路487號",
     phone: "07-6413808",
     note: ""
@@ -693,6 +678,22 @@ window.hospitalData = [
     name: "惠馨動物醫院",
     address: "741台南市善化區民生路397號",
     phone: "06-585-4119",
+    note: ""
+  },
+  {
+    id: 89,
+    district: "高雄市",
+    name: "小鳴動物醫院",
+    address: "高雄市前鎮區廣西路288號",
+    phone: "07-962-3055",
+    note: ""
+  },
+  {
+    id: 90,
+    district: "高雄市",
+    name: "星羽動物醫院｜三民院",
+    address: "高雄市三民區信國路20號",
+    phone: "07-395-5131",
     note: ""
   }
 ];
