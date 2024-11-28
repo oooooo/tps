@@ -7,7 +7,7 @@ const HospitalFilter = () => {
 
   // 狀態
   const [selectedDistrict, setSelectedDistrict] = useState("全部");
-  const [searchQuery, setSearchQuery, setSearch] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
