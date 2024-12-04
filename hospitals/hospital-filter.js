@@ -1,23 +1,69 @@
 // hospital-filter
-const { useState, useMemo } = React;
+const { useState, useEffect, useMemo } = React;
 
 const HospitalFilter = () => {
-  // 使用外部數據
-  const hospitals = window.hospitalData;
-
+  const sheetId = "1R7f8svVrq0GlGr6k4RxQ4lHLzaxyJCsy8-mh6cBMtRs";
+  const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+  //
+  const [hospitals, setHospitals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   // 狀態
   const [selectedDistrict, setSelectedDistrict] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  // 使用 useEffect 處理非同步數據載入
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(sheetUrl);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const csvText = await response.text();
+
+        const rows = csvText.split("\n").map(
+          (row) =>
+            row
+              .trim()
+              .split(",")
+              .map((cell) => cell.replace(/\r/g, ""))
+          // 找到 ”回車符“的正則表達式，表示要查找的內容。
+        );
+
+        const filteredRows = rows.filter((row) => row.length > 1);
+        const headers = filteredRows[0];
+
+        const dataObjects = filteredRows.slice(1).map((row) => {
+          return headers.reduce((obj, header, index) => {
+            obj[header] = row[index] ? row[index].trim() : "";
+            return obj;
+          }, {});
+        });
+
+        setHospitals(dataObjects);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(`資料獲取錯誤: ${error.message}`);
+        setError(error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+  // 空依賴數組，確保只在組件掛載時執行一次
+
   // 取得所有不重複的地區
   const districts = useMemo(() => {
     const uniqueDistricts = [...new Set(hospitals.map((h) => h.district))];
     return ["全部", ...uniqueDistricts];
-  }, []);
+  }, [hospitals]);
 
-  // [[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]
   // 取得所有不重複的地區並計算每個地區的有效資料筆數
   const districtsWithCount = useMemo(() => {
     // 先取得唯一地區
@@ -40,8 +86,7 @@ const HospitalFilter = () => {
         ...counts
       }
     };
-  }, []);
-  // [[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]
+  }, [hospitals]);
 
   // 過濾醫院資料
   const filteredHospitals = useMemo(() => {
@@ -51,14 +96,14 @@ const HospitalFilter = () => {
       const validName = hospital.name.trim() !== "";
       return districtMatch && searchMatch && validName;
     });
-  }, [selectedDistrict, searchQuery]);
+  }, [selectedDistrict, searchQuery, hospitals]);
 
   // 處理搜尋建議
   const handleSearchInput = (value) => {
     setSearchQuery(value);
     if (value.length > 0) {
       const matches = hospitals.filter((hospital) => hospital.name.toLowerCase().includes(value.toLowerCase()) || hospital.address.toLowerCase().includes(value.toLowerCase()));
-      setSuggestions(matches.slice(0, 20));
+      setSuggestions(matches.slice(0, 5));
       setShowSuggestions(true);
     } else {
       setSuggestions([]);
@@ -75,6 +120,10 @@ const HospitalFilter = () => {
     }
   };
 
+  // 渲染部分
+  if (isLoading) return React.createElement("div", null, "載入中...");
+  if (error) return React.createElement("div", null, "載入錯誤");
+
   return (
     <div className="container">
       <h1 className="title" id="top">
@@ -89,12 +138,13 @@ const HospitalFilter = () => {
       {/* 地區過濾按鈕 */}
       <div className="district-group">
         {districts.map((district) => (
-          <button key={district} onClick={() => setSelectedDistrict(district)} className={`button ${selectedDistrict === district ? "selected" : ""}`}>
+          <button key={district} onClick={() => setSelectedDistrict(district)} className={`button ${selectedDistrict === district ? "selected" : ""}`} disabled={districtsWithCount.counts[district] === 0}>
             {/* {district} */}
             {district} <span>{districtsWithCount.counts[district]}</span>
           </button>
         ))}
       </div>
+
       {/* 搜尋框 */}
       <div className="search-container search-container-block">
         <input type="text" placeholder="搜尋醫院名稱或地址..." value={searchQuery} onChange={(e) => handleSearchInput(e.target.value)} className="search-input" onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} />
@@ -124,6 +174,7 @@ const HospitalFilter = () => {
           </div>
         )}
       </div>
+
       {/* 結果列表 */}
       <div>
         {filteredHospitals.map((hospital) => (
@@ -144,6 +195,7 @@ const HospitalFilter = () => {
         ))}
       </div>
 
+      {/* go top */}
       <a className="gotop" href="#top">
         回頭
       </a>
