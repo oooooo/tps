@@ -1,0 +1,24 @@
+name: Deploy Website
+
+# 觸發時機，例如每次推送到 test 分支
+on:
+  push:
+    branches: [test]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # 在這裡使用 Secrets
+    env:
+      # 引用之前設定的 Secret
+      MY_SECRET_TOKEN: ${{ secrets.GS_API_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Secret in a step
+        run: |
+          # 這裡可以使用 $MY_SECRET_TOKEN
+          echo "Deploying with secret token"
