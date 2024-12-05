@@ -20,5 +20,5 @@ jobs:
 
       - name: Use Secret in a step
         run: |
-          # 這裡可以使用 $MY_SECRET_TOKEN
+          # 這裡可以使用 $GS_API_TOKEN
           echo "Deploying with secret token"
