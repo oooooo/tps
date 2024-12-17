@@ -1,0 +1,56 @@
+/* 容器樣式 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+
+  .title {
+    margin-bottom: 20px;
+    span {
+      font-size: 0.5em;
+      display: block;
+      padding-left: 0.05em;
+      font-weight: normal;
+    }
+  }
+}
+
+.note {
+  font-size: 0.75em;
+  color: #666;
+  margin: 0.75em 0;
+}
+
+.keyboard_key {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 2px 4px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0px #aaa;
+}
+
+.gotop {
+  position: sticky;
+  bottom: 10px;
+  left: 100%;
+  margin-right: 15px;
+  display: block;
+  line-height: 2;
+  font-size: 11px;
+  width: 54px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  color: #666;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin: 0 0.2em 0 0;
+}
