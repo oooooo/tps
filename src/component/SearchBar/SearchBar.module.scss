@@ -1,0 +1,70 @@
+/* 搜尋框樣式 */
+.searchBar {
+  position: relative;
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: inherit;
+  }
+
+  .clearButton {
+    font-size: 0.75em;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    font-family: monospace;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+  &_inline {
+    display: inline-block;
+    font-size: 13px;
+  }
+  &_block {
+    margin-bottom: 20px;
+    font-size: 16px;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+/*
+suggestionsList 搜尋建議
+*/
+.suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background: #f9f9f9;
+    }
+
+    .address {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}

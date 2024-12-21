@@ -1,0 +1,93 @@
+:root {
+  --lightB: #e6f3ff;
+  --defaultB: #007bff;
+}
+
+.district-group,/* 結果列表樣式 */
+.hospital-card {
+  button {
+    background: none;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25em;
+    cursor: pointer;
+    color: var(--defaultB);
+    &:hover {
+      background-color: #f8f9fa;
+    }
+    &:disabled {
+      color: #adafb1;
+      pointer-events: none;
+    }
+  }
+}
+
+/* 地區過濾按鈕樣式 */
+.district-group {
+  margin-bottom: 20px;
+  overflow: auto;
+  display: flex;
+  padding-left: 1px;
+  & .button {
+    margin: 0 0 8px -1px;
+    padding: 8px 16px;
+    font-size: 14px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      z-index: 1;
+    }
+    & span {
+      font-size: 11px;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bolder;
+    }
+    &.selected {
+      border: 2px solid var(--defaultB);
+      border: none;
+      background: var(--defaultB);
+      color: white;
+      z-index: 1;
+    }
+  }
+}
+
+/* 結果列表樣式 */
+.hospital {
+  &-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    button {
+      padding: 0 0.25em;
+      font-size: 0.6em;
+      color: #333;
+      border-color: #ddd;
+      background-color: #f4f4f4;
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  &-title {
+    margin: 0 0 10px 0;
+  }
+
+  &-text {
+    margin: 5px 0;
+    color: #666;
+  }
+
+  &-district {
+    float: right;
+    padding: 8px;
+    background: #f5f5f5;
+    color: #666;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}

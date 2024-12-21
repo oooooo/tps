@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@/styles/reboot.scss";
+import "@/styles/utility.scss";
 
 export const metadata: Metadata = {
   title: "Index | 陸龜小學堂",
