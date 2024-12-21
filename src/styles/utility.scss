@@ -12,14 +12,15 @@
       display: block;
       padding-left: 0.05em;
       font-weight: normal;
+      line-height: 2;
     }
   }
-}
 
-.note {
-  font-size: 0.75em;
-  color: #666;
-  margin: 0.75em 0;
+  .note {
+    font-size: 0.75em;
+    color: #666;
+    margin: 0.75em 0;
+  }
 }
 
 .keyboard_key {
@@ -30,7 +31,7 @@
   box-shadow: 1px 1px 0px #aaa;
 }
 
-.gotop {
+.scroll_top {
   position: sticky;
   bottom: 10px;
   left: 100%;

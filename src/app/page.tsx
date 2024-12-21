@@ -1,5 +1,4 @@
-import "@/styles/reboot.scss";
-import "@/styles/utility.scss";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,7 +17,7 @@ export default function Home() {
           </a>
         </li>
         <li>
-          <a href="hospital.html">🏥 陸龜小學堂 醫院查尋系統</a>
+          <Link href="/hospital">🏥 陸龜小學堂 醫院查尋系統</Link>
         </li>
       </ul>
     </div>
