@@ -3,8 +3,9 @@ name: Deploy Website
 on:
   push:
     branches:
-      - reactcreate
-      - test
+      ["reactcreate"]
+      # - reactcreate
+      # - test
 
 jobs:
   build:
