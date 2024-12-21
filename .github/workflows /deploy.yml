@@ -1,6 +1,5 @@
 name: Deploy Website
 
-# 觸發時機，例如每次推送到 test 分支
 on:
   push:
     branches:
