@@ -30,8 +30,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./out" # 指定只上传 'out' 文件夹
+          path: "." # 指定只上传 'out' 文件夹
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # 只部署 out 文件夹中的内容
+          folder: out
