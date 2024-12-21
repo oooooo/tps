@@ -15,9 +15,7 @@
 
 # next.js
 /.next/
-/out/_next/
-/out/*.txt
-
+/out/
 # production
 /build
 
