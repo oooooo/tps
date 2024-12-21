@@ -3,22 +3,30 @@ name: Deploy Website
 # 觸發時機，例如每次推送到 test 分支
 on:
   push:
-    branches: [test]
+    branches:
+      - test
+      - reactcreate
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
-    # 在這裡使用 Secrets
-    env:
-      # 引用之前設定的 Secret
-      MY_SECRET_TOKEN: ${{ secrets.GS_API_TOKEN }}
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Use Secret in a step
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # 或根据你的项目需要选择版本
+
+      - name: Install dependencies
         run: |
-          # 這裡可以使用 $GS_API_TOKEN
-          echo "Deploying with secret token"
+          npm install
+          npm run build
+
+      - name: Deploy to GitHub Pages # 默认 gh-pages 分支的根目录
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out # 发布的静态文件目录
