@@ -10,9 +10,10 @@
     border: 1px solid #dee2e6;
     border-radius: 0.25em;
     cursor: pointer;
-    color: var(--defaultB);
+    color: #666;
     &:hover {
       background-color: #f8f9fa;
+      color: #333;
     }
     &:disabled {
       color: #adafb1;
