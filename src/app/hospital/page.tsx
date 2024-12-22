@@ -144,7 +144,7 @@ export default function HospitalFilter() {
         <span>陸龜小學堂</span>醫院查尋系統
       </h1>
       <p className="note">
-        這裡搜集有在看陸龜的醫院，還需大家共同幫忙更新 (
+        這裡集結有在看陸龜的醫院，請大家協力更新 (
         <a href="https://www.facebook.com/share/p/15QW9pVTqM/" target="_blank">
           @ 留言回報
         </a>
