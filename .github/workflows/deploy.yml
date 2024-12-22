@@ -2,8 +2,8 @@ name: Deploy Website
 
 on:
   push:
-    branches: ["reactcreate"]
-    workflow_dispatch:
+    branches: ["reactcreate"] # 监听 reactcreate 分支的 push
+  workflow_dispatch: # 允许手动触发工作流
 
 permissions:
   contents: read
@@ -23,6 +23,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # 使用 Node.js 18
+
+      - name: Install dependencies
+        run: npm install # 安装依赖
+
+      - name: Build project
+        run: npm run build # 构建 Next.js 项目
+
+      - name: Debug out directory
+        run: ls -R out || echo "out folder not found" # 调试，检查 'out' 文件夹是否生成
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
