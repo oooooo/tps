@@ -3,9 +3,11 @@
   position: relative;
   input {
     padding: 10px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     border-radius: 4px;
     font-size: inherit;
+    border: none;
+    background: #f5f5f5;
   }
 
   .clearButton {

@@ -6,7 +6,6 @@
 .district-group,/* 結果列表樣式 */
 .hospital-card {
   button {
-    background: none;
     border: 1px solid #dee2e6;
     border-radius: 0.25em;
     cursor: pointer;
@@ -22,21 +21,43 @@
   }
 }
 
+.wrap-district {
+  position: relative;
+  overflow: hidden;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    height: 4em;
+    width: 10px;
+    border-radius: 50%;
+    left: -10px;
+    background: transparent;
+    box-shadow: 0 0 10px -4px #000000;
+  }
+  &::after {
+    left: 100%;
+  }
+}
 /* 地區過濾按鈕樣式 */
 .district-group {
   margin-bottom: 20px;
   overflow: auto;
   display: flex;
-  padding-left: 1px;
-  & .button {
+  padding: 8px 8px 0;
+  position: relative;
+
+  .button {
+    border: none;
+    border-radius: 0.25em;
     margin: 0 0 8px -1px;
     padding: 8px 16px;
     font-size: 14px;
-    &:last-child {
-      margin-right: 0;
-    }
+    background-color: transparent;
+
     &:hover {
-      z-index: 1;
+      background-color: #f1f7ff;
     }
     & span {
       font-size: 11px;
@@ -44,11 +65,10 @@
       font-weight: bolder;
     }
     &.selected {
-      border: 2px solid var(--defaultB);
-      border: none;
       background: var(--defaultB);
       color: white;
       z-index: 1;
+      box-shadow: 0 0 10px -3px #00000099;
     }
   }
 }
@@ -56,7 +76,7 @@
 /* 結果列表樣式 */
 .hospital {
   &-card {
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 15px;
@@ -85,8 +105,8 @@
   &-district {
     float: right;
     padding: 8px;
-    background: #f5f5f5;
-    color: #666;
+    background: var(--lightB);
+    color: var(--defaultB);
     border-radius: 12px;
     font-size: 0.75rem;
     white-space: nowrap;
