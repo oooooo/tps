@@ -144,25 +144,26 @@ export default function HospitalFilter() {
         <span>陸龜小學堂</span>醫院查尋系統
       </h1>
       <p className="note">
-        這裡集結有在看陸龜的醫院，請大家協力更新 (
+        這裡集結有在看陸龜的醫院，請大家協力更新資訊 (
         <a href="https://www.facebook.com/share/p/15QW9pVTqM/" target="_blank">
           @ 留言回報
         </a>
         ) 。
         <br />
-        (桌機：按住 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪可以左右 ↔️ 捲動地區按鈕)
+        (桌機按住鍵盤 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪進行 ↔️ 水平捲動)
       </p>
 
       {/* 地區過濾按鈕 */}
-      <div className="district-group">
-        {Object.keys(districtsWithCount).map((district) => (
-          <button key={district} onClick={() => clickDistrictBtn(district)} className={`button ${selectedDistrict === district ? "selected" : ""}`} disabled={districtsWithCount[district] === 0}>
-            {/* {district} */}
-            {district} <span>{districtsWithCount[district]}</span>
-          </button>
-        ))}
+      <div className="wrap-district">
+        <div className="district-group">
+          {Object.keys(districtsWithCount).map((district) => (
+            <button key={district} onClick={() => clickDistrictBtn(district)} className={`button ${selectedDistrict === district ? "selected" : ""}`} disabled={districtsWithCount[district] === 0}>
+              {/* {district} */}
+              {district} <span>{districtsWithCount[district]}</span>
+            </button>
+          ))}
+        </div>
       </div>
-
       <SearchBar placeholder="搜尋醫院名稱或地址..." suggestions={filteredHospitals} onSearch={(query) => setSearchQuery(query)} inputValue={searchQuery} onSuggestionClick={setSearchQuery} />
 
       {/* 結果列表 */}
