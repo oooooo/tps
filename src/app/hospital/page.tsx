@@ -150,7 +150,7 @@ export default function HospitalFilter() {
         </a>
         ) 。
         <br />
-        下方區塊可水平捲動露出其他區域按鈕 (桌機按住鍵盤 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪可水平犬動)
+        下方區塊可水平捲動露出其他區域按鈕 (桌機按住鍵盤 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪可水平捲動)
       </p>
 
       {/* 地區過濾按鈕 */}
