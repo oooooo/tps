@@ -141,7 +141,7 @@ export default function HospitalFilter() {
   return (
     <div className="container">
       <h1 className="title" id="top">
-        <span>陸龜小學堂</span>醫院查尋系統
+        <span>陸龜小學堂</span>醫院查詢系統
       </h1>
       <p className="note">
         這裡集結有在看陸龜的醫院，請大家協力更新資訊 (
