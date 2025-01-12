@@ -144,13 +144,11 @@ export default function HospitalFilter() {
         <span>陸龜小學堂</span>醫院查詢系統
       </h1>
       <p className="note">
-        這裡集結有在看陸龜的醫院，請大家協力更新資訊 (
+        排序依添入順序。<br />
+        這裡集結有在看陸龜的醫院，歡迎協力更新資訊 (
         <a href="https://www.facebook.com/groups/366377782941836/permalink/550451401201139/" target="_blank">
           @ 留言回報
-        </a>
-        ) 。
-        <br />
-        排序依添入順序。<br />
+        </a>)。<br />
         下方區塊可水平捲動露出其他區域按鈕 (桌機按住鍵盤 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪可水平捲動)
       </p>
 
