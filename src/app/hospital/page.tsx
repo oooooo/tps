@@ -150,6 +150,7 @@ export default function HospitalFilter() {
         </a>
         ) 。
         <br />
+        排序依添入順序。<br />
         下方區塊可水平捲動露出其他區域按鈕 (桌機按住鍵盤 <code className="keyboard_key">shift</code> 鍵 + 滑鼠滾輪可水平捲動)
       </p>
 
@@ -182,11 +183,13 @@ export default function HospitalFilter() {
         ))}
       </div>
 
-      {showScrollTopBtn && (
-        <a className="scroll_top" href="#top">
-          回頂端
-        </a>
-      )}
-    </div>
+      {
+        showScrollTopBtn && (
+          <a className="scroll_top" href="#top">
+            回頂端
+          </a>
+        )
+      }
+    </div >
   );
 }
